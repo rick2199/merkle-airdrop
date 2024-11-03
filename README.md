@@ -1,66 +1,35 @@
-## Foundry
+# Merkle Airdrop Project
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+![Tests](https://github.com/dmfxyz/murky/actions/workflows/run_tests.yml/badge.svg?event=push)
+![Slither](https://github.com/dmfxyz/murky/actions/workflows/slither.yml/badge.svg?event=push)
 
-Foundry consists of:
+## Overview
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+The Merkle Airdrop project provides a robust solution for generating and verifying Merkle proofs in Solidity. It includes contracts that can generate Merkle roots and proofs, as well as perform inclusion verification. This project is ideal for implementing airdrops, where users can claim tokens by proving their inclusion in a Merkle tree.
 
-## Documentation
+### Key Features
 
-https://book.getfoundry.sh/
+1. **Merkle Tree Implementations**:
+   - **`Merkle.sol`**: Implements the tree as a [Full Binary Tree](https://xlinux.nist.gov/dads/HTML/fullBinaryTree.html).
+   - **`CompleteMerkle.sol`**: Uses [Complete Binary Trees](https://xlinux.nist.gov/dads/HTML/completeBinaryTree.html), compatible with some external libraries.
 
-## Usage
+2. **Customizable Hashing**:
+   - Default implementations use sorted concatenation-based hashing.
+   - Custom hashing functions can be implemented by inheriting from `MurkyBase.sol`.
 
-### Build
+### Building Locally
 
-```shell
-$ forge build
-```
+To run the project locally, follow these steps:
 
-### Test
+1. Clone the repository.
+2. Install dependencies using `make install`.
+3. Run tests with `forge test`.
 
-```shell
-$ forge test
-```
+### Testing
 
-### Format
+The project includes tests with standardized data. Ensure all changes pass these tests. Slither analysis must also pass.
 
-```shell
-$ forge fmt
-```
+### Note
 
-### Gas Snapshots
+The code is not audited yet. Please conduct your own due diligence if you plan to use this code in production.
 
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
