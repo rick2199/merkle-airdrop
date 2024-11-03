@@ -31,7 +31,7 @@ clean  :; forge clean
 # Remove modules
 remove :; rm -rf .gitmodules && rm -rf .git/modules/* && rm -rf lib && touch .gitmodules && git add . && git commit -m "modules"
 
-install :; forge install
+install :; forge install foundry-rs/forge-std@v1 && forge install openzeppelin/openzeppelin-contracts && forge install dmfxyz/murky && forge install cyfrin/foundry-devops
 
 # Update Dependencies
 update:; forge update
